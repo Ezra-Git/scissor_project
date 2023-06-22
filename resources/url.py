@@ -5,6 +5,7 @@ from flask.views import MethodView
 from models.user import usermodel
 from random import choice
 import string
+import qrcode
 
 from db import db
 from models.url import urlmodel
@@ -18,6 +19,11 @@ def generate_short_url():
     """Function to generate short_url"""
     return ''.join(choice(string.ascii_letters+string.digits) for _ in range(7))
 
+def generate_qr_code(input_url):
+    """Function to generate qr_code"""
+    img = qrcode.make(input_url)
+    return img
+
 @blp.route("/")
 class ShortUrl(MethodView):
     def post(self):
@@ -27,9 +33,10 @@ class ShortUrl(MethodView):
         if url_info["custom_url"] and urlmodel.find_custom_url(url_info["custom_url"]) is not None:
             return {"message":"Custom URL already taken. Enter a new one"}
         if not url_info["url"]:
-            return {"message":"ENter a URL to shorten or customize"}
+            return {"message":"Enter a URL to shorten or customize"}
         if not url_info["custom_url"]:
             short_url = generate_short_url()
+        generate_qr_code(url_info['url'])
 
         new_link = urlmodel(
             long_url=url_info["url"], short_url=short_url, custom_url=url_info["custom url"], created_at=datetime.now())
