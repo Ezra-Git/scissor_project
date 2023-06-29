@@ -36,9 +36,14 @@ class ShortUrl(MethodView):
             return {"message":"Enter a URL to shorten or customize"}
         if not url_info["custom_url"]:
             short_url = generate_short_url()
-        generate_qr_code(url_info['url'])
-
+        qr_code = generate_qr_code(url_info['url'])
+        # qr_code.
         new_link = urlmodel(
             long_url=url_info["url"], short_url=short_url, custom_url=url_info["custom url"], created_at=datetime.now())
         db.session.add(new_link)
         db.session.commit()
+
+    def get(self):
+        qr_code = generate_qr_code('Hello')
+        print(dir( qr_code))
+        return qr_code

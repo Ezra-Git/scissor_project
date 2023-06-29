@@ -4,7 +4,12 @@ from flask.views import MethodView
 from flask_smorest import Api, Blueprint, abort
 from flask_sqlalchemy import SQLAlchemy
 
-upload_folder = "C:\Users\HP\Documents\scissor_project/qr_code"
+import marshmallow
+
+from resources.url import blp as url_blp
+from resources.user import blp as user_blp
+
+upload_folder = "C:/Users/HP/Documents/scissor_project/qr_code"
 
 app = Flask(__name__)
 app.config["API_TITLE"] = "My API"
@@ -16,8 +21,8 @@ api = Api(app)
 
 db = SQLAlchemy(app)
 
-
-
+api.register_blueprint(url_blp)
+api.register_blueprint(user_blp)
 
 if __name__ == '__main__':
     with app.app_context():

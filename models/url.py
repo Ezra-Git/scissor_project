@@ -9,7 +9,7 @@ class urlmodel(db.Model):
     custom_url = db.Column(db.String(50), nullable=True)
     url_id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.Foreignkey('user.id'),foreign_keys=True)
-    img_bytes = db.Column(db.Integer(255), nullable=False)
+    img_bytes = db.Column(db.LargeBinary, nullable=False)
 
     user_linker = db.relationship("usermodel", back_populates = "url_linker")
 
