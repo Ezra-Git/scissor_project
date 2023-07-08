@@ -6,12 +6,12 @@ from models.user import usermodel
 from db import db
 from passlib.hash import pbkdf2_sha256
 
-from flask_jwt_extended import jwt_required, create_access_token, set_access_cookies, unset_access_cookies, get_jwt
+from flask_jwt_extended import jwt_required, create_access_token, set_access_cookies, unset_access_cookies
 
 
 blp = Blueprint("user", "user", url_prefix="/user", description="Operations on user")
 
-@blp.route("/")
+@blp.route("/signup")
 class UserSignup(MethodView):
     def post(self):
         """Create a new user"""
@@ -22,7 +22,6 @@ class UserSignup(MethodView):
             print(e)
             return {"message":"Unable to create user"}
         return {"message":"New user created successfully"}
-
 
 @blp.route("/login")
 class Login(MethodView):
@@ -38,3 +37,11 @@ class Login(MethodView):
                 return response
             return "Email or password is incorrect"
         return "User not found"
+    
+@blp.route("/logout")
+class Logout(MethodView):
+    def post(self):
+        """Logout"""
+        response = make_response("Logout successful")
+        unset_access_cookies(response)
+        return response

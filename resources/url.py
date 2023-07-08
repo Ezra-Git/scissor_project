@@ -47,3 +47,4 @@ class ShortUrl(MethodView):
         qr_code = generate_qr_code('Hello')
         print(dir( qr_code))
         return qr_code
+    
