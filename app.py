@@ -32,6 +32,7 @@ jwt = JWTManager(app)
 api.register_blueprint(url_blp)
 api.register_blueprint(user_blp)
 
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
