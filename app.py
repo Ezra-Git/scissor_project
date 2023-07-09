@@ -8,6 +8,7 @@ from flask_jwt_extended import JWTManager
 import marshmallow
 import datetime
 
+from resources.healthstatus import blp as health_blp
 from resources.url import blp as url_blp
 from resources.user import blp as user_blp
 
