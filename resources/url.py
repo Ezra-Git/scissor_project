@@ -20,11 +20,11 @@ def generate_short_url():
     """Function to generate short_url"""
     return ''.join(choice(string.ascii_letters+string.digits) for _ in range(7))
 
-# def generate_qr_code(input_url):
-#     """Function to generate qr_code"""
-#     img = qrcode.make(input_url)
-#     img_bytes = img.to_bytes()
-#     return img_bytes
+def generate_qr_code(input_url):
+    """Function to generate qr_code"""
+    img = qrcode.make(input_url)
+    img_bytes = img.to_bytes()
+    return img_bytes
 
 @blp.route("/")
 class ShortUrl(MethodView):
@@ -38,8 +38,7 @@ class ShortUrl(MethodView):
             return {"message":"Enter a URL to shorten or customize"}
         if not url_info["custom_url"]:
             short_url = generate_short_url()
-        # qr_code = generate_qr_code(url_info['url'])
-        # qr_code.
+        qr_code = generate_qr_code(url_info['url'])
         new_link = urlmodel(
             long_url=url_info["url"], short_url=short_url, custom_url=url_info["custom_url"])
         db.session.add(new_link)
