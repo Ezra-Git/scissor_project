@@ -22,7 +22,7 @@
 
 <div>
   <p align="center">
-    <a href="https://github.com/Oluwatemmy/Link-Ease/blob/main/README.md"><strong>Explore the Documentation »</strong></a>
+    <a href="https://github.com/Ezra-Git/scissor_project#readme"><strong>Explore the Documentation »</strong></a>
     <br /> 
     <br />
   </p>
@@ -76,9 +76,9 @@ SzrApp is a dynamic URL shortening application created to make sharing links in 
 
 It is the ideal solution for marketers, content providers, and anybody looking to distribute links effectively because of its user-friendly interface, customisable links, and in-depth data. Experience the power of brief, shareable links by joining SzrApp today.
 
-Live Site: [link-ease](https://pythonanywhere.com)
+Live Site: [SzrApp](https://pythonanywhere.com)
 
-Full Documentation: [Readme](https://github.com/)
+Full Documentation: [Readme](https://github.com/Ezra-Git/scissor_project#readme)
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
@@ -195,7 +195,7 @@ On gitbash terminal
 <!-- License -->
 ## License
 
-Distributed under the MIT License. See <a href="https://github.com/Oluwatemmy/Link-Ease/blob/main/LICENSE">LICENSE</a> for more information.
+Distributed under the MIT License. See <a href="https://github.com/Ezra-Git/scissor_project/blob/main/LICENSE">LICENSE</a> for more information.
 
 <p align="right"><a href="#readme-top">back to top</a></p>
 
